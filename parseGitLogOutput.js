@@ -43,6 +43,7 @@ if(process.argv.length > 2) {
       }  
     }
     let data = JSON.stringify(config, null, 2);
+    console.error("config: " + data);
     fs.writeFileSync(__dirname + "/config.json", data);
   }
 }
