@@ -1,0 +1,18 @@
+{
+  "space": "CPA",
+  "filesRoot": ".",
+  "protocol": "http",
+  "host": "localhost",
+  "port": "80",
+  "oauth": {
+      "consumer_key": "OauthKey",
+      "consumer_secret": "",
+      "access_token": "",
+      "access_token_secret": ""
+  },
+  "paths": {
+      "request-token": "/plugins/servlet/oauth/request-token",
+      "access-token": "/plugins/servlet/oauth/access-token",
+      "authorize": "/plugins/servlet/oauth/authorize"
+  }
+}

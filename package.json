@@ -1,0 +1,23 @@
+{
+  "name": "confluence-uploader",
+  "version": "1.0.0",
+  "description": "converting md to wiki and uploading pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "gr4per",
+  "license": "GNU GPL v3.0",
+  "dependencies": {
+    "form-data": "^3.0.0",
+    "marked": "^0.3.6",
+    "min-qs": "^1.4.0",
+    "min-util": "^2.3.0",
+    "ramda": "^0.27.0",
+    "superagent": "^5.2.1"
+  },
+  "devDependencies": {
+    "http-debug": "^0.1.2",
+    "mocha": "^7.0.1"
+  }
+}
