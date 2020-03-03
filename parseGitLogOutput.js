@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var readline = require('readline');
 var spawn = require('child_process').spawnSync;
+var fs = require("fs");
 
 function triggerUploads(commitInfo) {
   let syncedFiles = [];
@@ -15,7 +16,7 @@ function triggerUploads(commitInfo) {
           //console.log("cwd= " + process.cwd());
           //console.log("args=" + JSON.stringify(process.argv, null, 2));
           let comment = "" + commitInfo.comment + " (from commit " + commitInfo.sha + ")";
-          let uploader = spawn('./confluence-uploader/index.js', [commitInfo.author, f.path, comment]);
+          let uploader = spawn(__dirname + '/index.js', [commitInfo.author, f.path, comment]);
           //uploader.stdout.on('data', (data) => {console.log(`stdout: ${data}`)});
           //uploader.stderr.on('data', (data) => {console.error(`stderr: ${data}`)});
           //uploader.on('close', (code) => {console.log(`child process exited with code ${code}`)});
@@ -25,6 +26,27 @@ function triggerUploads(commitInfo) {
       }
   }
 }
+
+var config = require("./config.json");
+if(process.argv.length > 2) {
+  for(let i = 2; i < process.argv.length; i++) {
+    let arg = process.argv[i];
+    if(arg.startsWith("-C")){
+      let tokens = arg.split(/=/);
+      if(tokens.length != 2) {
+        console.error("passed cmd line config arg without value: " + arg);
+        process.exit(1);
+      }
+      else {
+        let key = tokens[0].substring(2,tokens[0].length);
+        config[key]=tokens[1];
+      }  
+    }
+    let data = JSON.stringify(config, null, 2);
+    fs.writeFileSync(__dirname + "/config.json", data);
+  }
+}
+//process.exit(0);
 
 var rl = readline.createInterface({
     input: process.stdin,
