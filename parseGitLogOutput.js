@@ -28,6 +28,7 @@ function triggerUploads(commitInfo) {
 }
 
 var config = require("./config.json");
+console.error("args: " + JSON.stringify(process.argv));
 if(process.argv.length > 2) {
   for(let i = 2; i < process.argv.length; i++) {
     let arg = process.argv[i];
@@ -39,6 +40,7 @@ if(process.argv.length > 2) {
       }
       else {
         let key = tokens[0].substring(2,tokens[0].length);
+        console.log("adding value " + tokens[1] + " to key " + key);
         config[key]=tokens[1];
       }  
     }
