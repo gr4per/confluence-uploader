@@ -10,7 +10,7 @@
   "license": "GNU GPL v3.0",
   "dependencies": {
     "form-data": "^3.0.0",
-    "marked": "^0.3.6",
+    "marked": "^4.0.10",
     "min-qs": "^1.4.0",
     "min-util": "^2.3.0",
     "ramda": "^0.27.0",
