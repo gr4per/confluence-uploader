@@ -18,6 +18,6 @@
   },
   "devDependencies": {
     "http-debug": "^0.1.2",
-    "mocha": "^7.0.1"
+    "mocha": "^10.2.0"
   }
 }
